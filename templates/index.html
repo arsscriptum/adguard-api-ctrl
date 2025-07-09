@@ -1,0 +1,68 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AdGuard API Control</title>
+  <link rel="stylesheet" href="/static/adguard_api_server.css">
+  <style>
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      justify-content: left;
+      min-height: 100vh;
+    }
+    [data-theme="DARK"] .wrapper {
+      background-color: #f5f7fb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <h1>AdGuard API Control</h1>
+
+    <button class="btn btn-primary" onclick="api('list')">
+      List All Rewrites
+    </button>
+    <button class="btn btn-danger" onclick="api('delete_all')">
+      Delete All Rewrites
+    </button>
+    <button class="btn btn-success" onclick="api('add_presets')">
+      Add Preset Rewrites
+    </button>
+
+    <h2>Result:</h2>
+    <pre id="result"></pre>
+  </div>
+
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <script>
+    (function() {
+      var LOCAL_STORAGE_THEME_KEY = 'account_theme';
+      var theme = 'light';
+
+      try {
+          theme = window.localStorage.getItem(LOCAL_STORAGE_THEME_KEY);
+      } catch(e) {
+          console.error(e);
+      }
+
+      document.body.dataset.theme = theme;
+    })();
+
+    function api(action) {
+      fetch('/api/' + action, { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('result').textContent =
+            JSON.stringify(data, null, 2);
+        });
+    }
+  </script>
+
+</body>
+</html>

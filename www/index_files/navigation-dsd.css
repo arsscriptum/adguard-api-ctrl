@@ -1,0 +1,439 @@
+/* --------------------------------------------------
+  MENU DE NAVIGATION
+===================================================== */
+
+#barre-navigation #navigation-principale {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+  @media (min-width: 768px) {
+    #barre-navigation #navigation-principale {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+  }
+  @media (min-width: 992px) {
+    #barre-navigation #navigation-principale {
+      flex-direction: row;
+      align-items: center;
+      min-height: 76px;
+    }
+  }
+
+#menu-navigation,
+#menu-secondaire {
+  position: relative;
+  z-index: 100;
+}
+
+#menu-navigation ul.onglets,
+#menu-secondaire ul.onglets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+  @media (min-width: 992px) {
+    #menu-navigation ul.onglets {
+      flex-direction: row;
+    }
+  }
+#menu-navigation ul.onglets > li,
+#menu-secondaire ul.onglets > li {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+@media (max-width: 991px) {
+  #menu-navigation ul.onglets > li:before,
+  nav #hooks.mobile #utilitaires .utilitaire:before,
+  nav #hooks.mobile .hook:before,
+  #menu-secondaire ul.onglets > li:before {
+    content: "";
+    display: block;
+    width: calc(100% - 32px);
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    background-color: #e5e5e5;
+  }
+  nav #hooks.mobile #utilitaires {
+    border-bottom: none;
+  }
+}
+
+#menu-navigation ul.onglets li a,
+#menu-secondaire ul.onglets li a {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 18px 56px 18px 16px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  color: #2f2f2f;
+  text-decoration: none;
+}
+  @media (min-width: 992px) {
+    #menu-navigation ul.onglets li a {
+      margin: 0 16px 0 0;
+      padding: 24px 8px;
+      line-height: 1.75rem;
+    }
+  }
+#menu-navigation ul.onglets li a:focus,
+#menu-secondaire ul.onglets li a:active,
+#menu-secondaire ul.onglets li a:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 3px #146fd2 inset;
+          box-shadow: 0 0 0 3px #146fd2 inset;
+}
+@media (max-width: 991px) {
+  #menu-navigation ul.onglets > li > a:active,
+  #menu-navigation ul.onglets > li > a.selected,
+  #menu-navigation ul.onglets > li > a.ouvert {
+    color: #00874e;
+  }
+}
+
+@media (max-width: 991px) {
+  #menu-navigation ul.onglets > li > a:after,
+  #menu-navigation > .btn-link .libelle:after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 50%;
+    right: 24px;
+    -webkit-transform: translateY(-50%) rotate(90deg);
+    transform: translateY(-50%) rotate(90deg);
+    background-image: url(/ressources/images/ic-n1-chevron-droit-vert.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  #menu-navigation ul.onglets > li > a.ouvert:after {
+    -webkit-transform: translateY(-50%) rotate(-90deg);
+    transform: translateY(-50%) rotate(-90deg);
+  }
+  #menu-navigation ul.onglets > li > a.onglet-lien:after,
+  #menu-navigation > .btn-link .libelle:after {
+    background-image: none;
+  }
+}
+
+#menu-navigation ul.onglets > li > a:hover:before,
+#menu-navigation ul.onglets > li > a:active:before,
+#menu-navigation ul.onglets > li > a.selected:before,
+#menu-navigation ul.onglets > li > a.ouvert:before,
+#menu-secondaire ul.onglets li > a:hover:before,
+#menu-secondaire ul.onglets li > a:active:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background-color: #00874e;
+}
+  @media (min-width: 992px) {
+    #menu-navigation ul.onglets > li > a:hover:before,
+    #menu-navigation ul.onglets > li > a:active:before,
+    #menu-navigation ul.onglets > li > a.selected:before,
+    #menu-navigation ul.onglets > li > a.ouvert:before {
+      top: auto;
+      bottom: 0;
+      left: 8px;
+      width: calc(100% - 16px);
+      height: 4px;
+    }
+    #menu-navigation > .btn-link:hover .libelle:before,
+    #menu-navigation > .btn-link:focus .libelle:before,
+    #menu-navigation > .btn-link:active .libelle:before {
+      display: none;
+    }
+  }
+
+#menu-navigation ul.menu {
+  position: relative;
+  margin: 10px 0 20px 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+}
+  @media (min-width: 992px) {
+    #menu-navigation ul.menu {
+      position: absolute;
+      margin: 0;
+      top: calc(100% + 1px);
+      left: 0;
+      /* width: 260px; */
+      background-color: #fff;
+      border: 1px solid #cccbcb;
+      -moz-box-shadow: 0 6px 14px 0 #4c4c4c;
+      -webkit-box-shadow: 0 6px 14px 0 #4c4c4c;
+      box-shadow: 0 6px 14px #4c4c4c;
+    }
+  }
+#menu-navigation ul.menu li {
+  padding-left: 0;
+  background: none;
+}
+  @media (min-width: 992px) {
+    #menu-navigation ul.menu li:first-child {
+      margin-top: 12px;
+    }
+    #menu-navigation ul.menu li:last-child {
+      margin-bottom: 12px;
+    }
+  }
+
+#menu-navigation ul.menu li a {
+  margin-right: 0;
+  padding: 10px 32px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+#menu-navigation ul.menu li a:hover {
+  background-color: #d9f0e3;
+  text-decoration: underline;
+}
+  @media (max-width: 991px) {
+    #menu-navigation ul.menu li a:active {
+      color: #00874e;
+      text-decoration: none;
+    }
+  }
+  @media (min-width: 992px) {
+    #menu-navigation ul.menu li a {
+      padding: 6px 16px;
+    }
+    #menu-navigation ul.menu li a:hover,
+    #menu-navigation ul.menu li a:focus,
+    #menu-navigation ul.menu li a:active {
+      background-color: #d9f0e3;
+      text-decoration: underline;
+    }
+  }
+#menu-navigation ul.menu li a.voir-tout:after {
+  content: "";
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  background-image: url(/ressources/images/ic-n1-chevron-bas.svg);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 0.875rem;
+}
+@media (min-width: 992px) {
+  #menu-navigation ul.menu li a.voir-tout {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+  #menu-navigation ul.menu li a.voir-tout:after {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+#menu-navigation ul.menu li a.externe:after {
+  content: "";
+  position: absolute;
+  margin-left: 0.25rem;
+  top: 50%;
+  width: 0.875rem;
+  height: 0.875rem;
+  background-image: url(/ressources/images/contenus_contour_lien_externe-gris.svg);
+  background-repeat: no-repeat;
+  background-size: 0.875rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* --------------------------------------------------
+  HOOKS
+===================================================== */
+
+nav #hooks.mobile {
+  width: auto;
+  margin-top: -1px;
+  margin-left: 0;
+  padding-top: 0;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+nav #hooks.mobile .hook {
+  margin-top: 0;
+}
+nav #hooks.mobile h2,
+nav #hooks.mobile #utilitaires h2,
+#hooks.mobile #clickToCallBoite h2.titre {
+  margin: 0;
+  padding: 18px 16px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  background-color: #f4f4f4;
+  background-image: none;
+  color: #2f2f2f;
+}
+nav #hooks.mobile .boite {
+  padding: 16px;
+  background-color: transparent;
+  border: none;
+}
+nav #hooks.mobile #service-clientele h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2f2f2f;
+}
+nav #hooks.mobile #utilitaires h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: none;
+  background: none;
+}
+nav #hooks.mobile #service-clientele .titre-n3 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+nav #hooks.mobile #utilitaires .utilitaire {
+  position: relative;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+nav #hooks.mobile ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+/* overwrtite contenu.css */
+nav #hooks.mobile ul.liens-action li {
+  background: none;
+  position: relative;
+  padding-left: 0;
+}
+/* fin overwrite contenu.css */
+
+nav #hooks.mobile ul.liens-action a {
+  display: inline-block;
+  position: relative;
+  padding: 10px 20px;
+  font-weight: 400;
+}
+nav #hooks.mobile ul.liens-action a:link,
+nav #hooks.mobile ul.liens-action a:visited {
+  text-decoration: none;
+  color: #2f2f2f;
+}
+nav #hooks.mobile ul.liens-action a:hover,
+nav #hooks.mobile ul.liens-action a:focus {
+  color: #2f2f2f;
+  text-decoration: underline;
+  outline: none;
+  -webkit-box-shadow: 0 0 0 2px #146fd2 inset, 0 0 0 3px #fff inset;
+          box-shadow: 0 0 0 2px #146fd2 inset, 0 0 0 3px #fff inset;
+}
+nav #hooks.mobile #utilitaires .tiroir .entete-tiroir h3 a,
+nav #hooks.mobile #utilitaires h3 a {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 18px 56px 18px 16px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2f2f2f;
+  text-decoration: none;
+  background: none;
+}
+nav #hooks.mobile #utilitaires .tiroir .entete-tiroir h3 a:focus,
+nav #hooks.mobile #utilitaires h3 a:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 2px #146fd2 inset, 0 0 0 3px #fff inset;
+          box-shadow: 0 0 0 2px #146fd2 inset, 0 0 0 3px #fff inset;
+}
+nav #hooks.mobile #utilitaires .tiroir .entete-tiroir h3 a:hover:before,
+nav #hooks.mobile #utilitaires .tiroir .entete-tiroir h3 a:active:before,
+nav #hooks.mobile #utilitaires .tiroir.ouvert .entete-tiroir h3 a:before,
+nav #hooks.mobile #utilitaires .utilitaire > h3 a:hover:before,
+nav #hooks.mobile #utilitaires .utilitaire > h3 a:active:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background-color: #00874e;
+}
+nav #hooks.mobile #utilitaires .tiroir .entete-tiroir h3 a:after,
+nav #hooks.mobile #utilitaires .utilitaire > h3:after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 10px;
+  top: calc(50% - 5px);
+  right: 20px;
+  background-image: url(/ressources/images/ic-n1-chevron-bas.svg);
+  background-repeat: no-repeat;
+}
+nav #hooks.mobile #utilitaires .tiroir.ouvert .entete-tiroir h3 a:after {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+nav #hooks.mobile #utilitaires .utilitaire > h3:after {
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+nav #hooks #utilitaires .tiroir .contenu-tiroir {
+  padding: 0 20px;
+}
+#hooks.mobile .utilitaire .texte {
+  padding: 0;
+}
+#hooks.mobile .ui-selectmenu {
+  font-size: 1rem;
+  height: 2rem;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+#hooks.mobile #service-clientele select {
+  width: auto;
+}
+#hooks.mobile #service-clientele .pre-select {
+  width: auto !important;
+}
+#hooks.mobile #service-clientele .boutons-sac-go {
+  border-radius: 8px;
+}
+#hooks.mobile #clickToCallBoite {
+  background-image: none;
+  border: none;
+}
+#hooks.mobile #clickToCallBoite .titre br,
+#hooks.mobile #clickToCallBoite .titre br:after {
+  content: ' ';
+}
+#hooks.mobile #clickToCallBoite .attente {
+  padding: 20px 20px 10px 20px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+#hooks.mobile #clickToCallBoite #click-to-call {
+  padding: 10px 20px 20px 20px;
+}

@@ -1,0 +1,21 @@
+► Title - 
+	Error in loading frames
+♦ [Version] Date/Hour - 
+	[2.41.2] 07/09/2025 17:13:38
+▬ Message - 
+	A task was canceled.
+○ Type - 
+	System.Threading.Tasks.TaskCanceledException
+▲ Source - 
+	System.Private.CoreLib
+▼ TargetSite - 
+	Void ThrowForNonSuccess(System.Threading.Tasks.Task)
+♠ StackTrace - 
+   at System.Windows.Threading.DispatcherOperation.Wait(TimeSpan timeout)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherOperation operation, CancellationToken cancellationToken, TimeSpan timeout)
+   at System.Windows.Threading.Dispatcher.Invoke(Action callback, DispatcherPriority priority, CancellationToken cancellationToken, TimeSpan timeout)
+   at System.Windows.Threading.Dispatcher.Invoke(Action callback)
+   at ScreenToGif.Windows.Editor.Load() in R:\Source\ScreenToGif\ScreenToGif\Windows\Editor.xaml.cs:line 3604
+
+----------------------------------
+

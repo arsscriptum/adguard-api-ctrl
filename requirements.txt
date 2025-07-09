@@ -1,0 +1,4 @@
+json
+python-dotenv
+flask
+requests

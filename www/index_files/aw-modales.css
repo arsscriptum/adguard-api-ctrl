@@ -1,0 +1,217 @@
+#colorbox #lb-alerte-deconnexion {
+  max-height: none;
+}
+#colorbox #cboxContent {
+  margin: 0;
+  padding: 0;
+}
+#colorbox #cboxLoadedContent {
+  padding: 1em 10px;
+}
+#colorbox #lb-alerte-deconnexion h2 {
+  margin-bottom: 10px;
+}
+#colorbox #lb-alerte-deconnexion .boutons-action {
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+.alert {
+  margin-top: 10px;
+  padding: 10px 10px 10px 32px;
+  color: #3e3e3e;
+  background-color: #f2f2f2;
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+  border: 1px solid #cbcbcb;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.alert.alert-warning {
+  background-image: url(/ressources/images/a00-icone-avertissement.png);
+}
+
+.alerte.dsd {
+  display: flex;
+  position: relative;
+  margin: 0;
+  padding: 14px;
+  gap: 0.5rem;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+.alerte.dsd.alerte-information {
+  color: #1c3a52;
+  background-color: #dbeaf6;
+  border: 2px solid #a7ceed;
+}
+.alerte.dsd.alerte-confirmation {
+  color: #053e26;
+  background-color: #d9f0e3;
+  border: 2px solid #229c69;
+}
+.alerte.dsd .icone {
+  position: relative;
+  padding: 0;
+}
+.alerte.dsd .ic-information:before {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  background: none;
+  background-color:#1c3a52;
+  -webkit-mask-image: url('/ressources/images/alertes_rempli_information.svg');
+  mask-image: url('/ressources/images/alertes_rempli_information.svg');
+}
+.alerte.dsd .ic-confirmation:before {
+  display: block;
+  position: relative;
+  top: 0;
+  background: none;
+  background-color:#053e26;
+  -webkit-mask-image: url('/ressources/images/alertes_rempli_confirmation.svg');
+  mask-image: url('/ressources/images/alertes_rempli_confirmation.svg');
+}
+
+.grille.promo .rangee {
+  margin-left: -10px;
+  margin-right: -10px;
+  box-sizing: border-box;
+}
+.grille.promo .rangee:after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+.grille.promo .colonne {
+  position: relative;
+  float: left;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+.grille.promo .col-50 {
+  width: 50% !important;
+}
+.grille.promo .rangee + .rangee {
+  margin-top: 10px;
+}
+.grille.promo .colonne {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+.grille.promo .boite {
+  padding: 10px 10px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  box-sizing: content-box;
+}
+.grille.promo .boite:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.grille.promo .bloc-promo > * { margin-top: 0; margin-bottom: 0; }
+.grille.promo .bloc-promo > * + * { margin-top: 0.5em; }
+.grille.promo .bloc-promo .image-gauche:first-child + * { margin-top: 0; }
+.grille.promo .colonne .bloc-promo .image-gauche { width: 218px; height: 143px; }
+.grille.promo .colonne.col-50 .bloc-promo .image-gauche { width: 128px; height: 128px; }
+.grille.promo .avantage-membre {
+  position: relative;
+  display: inline-block;
+  margin-left: 16px;
+  padding: 8px 10px 8px 21px;
+  color: #4d4d4d;
+  background-color: #ffc20e;
+  font-weight: bold;
+  font-size: 0.846em;
+  line-height: 16px;
+  text-transform: uppercase;
+  border: 2px solid #ffc20e;
+}
+.grille.promo .avantage-membre:before {
+  content: url(/ressources/images/b35-pastille-amd.png);
+  display: block;
+  position: absolute;
+  width: 32px;
+  height: 38px;
+  left: -17px;
+  top: -3px;
+}
+
+.grille.promo.dsd {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.grille.promo.dsd .capsule {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  position: relative;
+  padding: 16px;
+  border: 2px solid #e6e7e8;
+  border-radius: 8px;
+}
+.grille.promo.dsd .capsule.amd {
+  flex-basis: 100%;
+}
+
+.grille.promo.dsd .bloc-promo { overflow: auto; }
+.grille.promo.dsd .bloc-promo p { font-size: 0.875rem; line-height: 1.25rem; }
+.grille.promo.dsd .bloc-promo p strong { font-size: 1.125rem; line-height: 1.5rem; }
+.grille.promo.dsd .bloc-promo .image-gauche { width: 128px; height: 128px; }
+.grille.promo.dsd .capsule.amd .bloc-promo .image-gauche { width: 218px; height: 143px; }
+.grille.promo.dsd .bloc-promo > * { margin-top: 0; margin-bottom: 0; }
+.grille.promo.dsd .bloc-promo > *:not(img) + * { margin-top: 0.5rem; }
+
+.grille.promo.dsd .bloc-promo a.lien-action {
+  position: relative;
+  padding: 0 0 0 2rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #2f2f2f;
+  text-decoration: underline;
+  background: none;
+}
+.grille.promo.dsd .bloc-promo a.lien-action:before {
+  content: "";
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  left: 0;
+  top: 0;
+  background-color: #00874e;
+  border-radius: 100%;
+}
+.grille.promo.dsd .bloc-promo a.lien-action:after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  top: calc((1.5rem - 1rem) /2);
+  left: calc((1.5rem - 1rem) /2);
+  background-color:#fff;
+  -webkit-mask-image: url('/ressources/images/navigations_contour_fleche_droite.svg');
+  mask-image: url('/ressources/images/navigations_contour_fleche_droite.svg');
+}
+.grille.promo.dsd .bloc-promo a.lien-action:hover {
+  background: #e6e6e6;
+  background-clip: content-box;
+}
+.grille.promo.dsd .bloc-promo a.lien-action:focus {
+  background: #146fd2;
+  color: #fff;
+  background-clip: content-box;
+  outline: none;
+}
+.grille.promo.dsd .bloc-promo a.lien-action:focus:before {
+  background-color: #146fd2;
+}
