@@ -21,22 +21,22 @@ EOF
 log ".env file created with the following content:"
 cat .env
 
-log "Creating temporary directory..."
-mkdir -p tmp
+#log "Creating temporary directory..."
+#mkdir -p tmp
 
-log "Changing into tmp directory..."
-cd tmp
+#log "Changing into tmp directory..."
+#cd tmp
 
-log "Downloading master.zip from GitHub..."
-wget \
-  --referer=https://github.com/arsscriptum/adguard-api-ctrl \
-  -O master.zip \
-  https://github.com/arsscriptum/adguard-api-ctrl/archive/refs/heads/master.zip
+#log "Downloading master.zip from GitHub..."
+#wget \
+#  --referer=https://github.com/arsscriptum/adguard-api-ctrl \
+#  -O master.zip \
+#  https://github.com/arsscriptum/adguard-api-ctrl/archive/refs/heads/master.zip
 
-log "Unzipping master.zip..."
-unzip -o master.zip
+#log "Unzipping master.zip..."
+#unzip -o master.zip
 
-cd adguard-api-ctrl-master
+#cd adguard-api-ctrl-master
 
 log "Creating Python virtual environment..."
 python3 -m venv pyenv
