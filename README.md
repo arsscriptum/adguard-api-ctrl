@@ -44,7 +44,8 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 ## Menu
-<img src="img/menu.png" alt="menu" />
+
+![menu](img/menu1.png)
 
 ---
 
