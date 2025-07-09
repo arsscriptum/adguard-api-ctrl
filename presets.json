@@ -1,0 +1,5 @@
+{
+    "*.desjardins.com": "10.0.0.111",
+    "*.desjardins.ca": "10.0.0.111",
+    "*.example.org": "10.0.0.222"
+}

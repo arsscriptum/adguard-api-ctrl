@@ -7,15 +7,53 @@
   <title>AdGuard API Control</title>
   <link rel="stylesheet" href="/static/adguard_api_server.css">
   <style>
+    body[data-theme="dark"] {
+      background-color: #1e1e1e;
+      color: #f5f5f5;
+    }
+
     .wrapper {
       display: flex;
       flex-direction: column;
-      align-items: left;
-      justify-content: left;
+      align-items: center;
+      justify-content: center;
       min-height: 100vh;
+      padding: 2rem;
     }
-    [data-theme="DARK"] .wrapper {
-      background-color: #f5f7fb;
+
+    h1 {
+      text-align: center;
+      color: #66b586;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      margin: 0.5rem;
+    }
+
+    table {
+      margin-top: 2rem;
+      width: 80%;
+      border-collapse: collapse;
+      background-color: #2c2c2c;
+      color: #f5f5f5;
+    }
+
+    table, th, td {
+      border: 1px solid #444;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #3b3b3b;
+    }
+
+    tr:nth-child(even) {
+      background-color: #252525;
     }
   </style>
 </head>
@@ -24,18 +62,20 @@
   <div class="wrapper">
     <h1>AdGuard API Control</h1>
 
-    <button class="btn btn-primary" onclick="api('list')">
-      List All Rewrites
-    </button>
-    <button class="btn btn-danger" onclick="api('delete_all')">
-      Delete All Rewrites
-    </button>
-    <button class="btn btn-success" onclick="api('add_presets')">
-      Add Preset Rewrites
-    </button>
+    <div>
+      <button class="btn btn-primary" onclick="api('list')">
+        List All Rewrites
+      </button>
+      <button class="btn btn-danger" onclick="api('delete_all')">
+        Delete All Rewrites
+      </button>
+      <button class="btn btn-success" onclick="api('add_presets')">
+        Add Preset Rewrites
+      </button>
+    </div>
 
     <h2>Result:</h2>
-    <pre id="result"></pre>
+    <div id="result-container"></div>
   </div>
 
   <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -43,10 +83,10 @@
   <script>
     (function() {
       var LOCAL_STORAGE_THEME_KEY = 'account_theme';
-      var theme = 'light';
+      var theme = 'dark';
 
       try {
-          theme = window.localStorage.getItem(LOCAL_STORAGE_THEME_KEY);
+          theme = window.localStorage.getItem(LOCAL_STORAGE_THEME_KEY) || 'dark';
       } catch(e) {
           console.error(e);
       }
@@ -57,10 +97,48 @@
     function api(action) {
       fetch('/api/' + action, { method: 'POST' })
         .then(response => response.json())
-        .then(data => {
-          document.getElementById('result').textContent =
-            JSON.stringify(data, null, 2);
+        .then(data => renderTable(data));
+    }
+
+    function renderTable(data) {
+      const container = document.getElementById('result-container');
+      container.innerHTML = '';
+
+      if (!data || Object.keys(data).length === 0) {
+        container.textContent = 'No data returned.';
+        return;
+      }
+
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      const tbody = document.createElement('tbody');
+
+      // Build table headers dynamically
+      const firstItem = Array.isArray(data) ? data[0] : data;
+      const headers = Object.keys(firstItem);
+      const headerRow = document.createElement('tr');
+      headers.forEach(key => {
+        const th = document.createElement('th');
+        th.textContent = key;
+        headerRow.appendChild(th);
+      });
+      thead.appendChild(headerRow);
+
+      // Build table rows
+      const rows = Array.isArray(data) ? data : [data];
+      rows.forEach(item => {
+        const row = document.createElement('tr');
+        headers.forEach(key => {
+          const td = document.createElement('td');
+          td.textContent = (item[key] !== undefined && item[key] !== null) ? item[key] : '';
+          row.appendChild(td);
         });
+        tbody.appendChild(row);
+      });
+
+      table.appendChild(thead);
+      table.appendChild(tbody);
+      container.appendChild(table);
     }
   </script>
 
