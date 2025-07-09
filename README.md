@@ -26,8 +26,21 @@ Clone or copy the script to your server.
 ### 1. Create Python Virtual Environment
 
 ```bash
+wget \
+  --referer=https://github.com/arsscriptum/adguard-api-ctrl \
+  -O master.zip \
+  https://github.com/arsscriptum/adguard-api-ctrl/archive/refs/heads/master.zip
+
+log "Unzipping master.zip..."
+unzip -o master.zip
+
+cd adguard-api-ctrl-master
+
 python3 -m venv pyenv
+
 source pyenv/bin/activate
+
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
