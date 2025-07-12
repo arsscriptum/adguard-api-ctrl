@@ -112,7 +112,7 @@ def load_presets():
         RuntimeError: if file missing or invalid
     """
     try:
-        with open("presets.json", "r") as f:
+        with open("/home/gp/adguard-api-ctrl/presets.json", "r") as f:
             presets = json.load(f)
 
         if not isinstance(presets, dict):
